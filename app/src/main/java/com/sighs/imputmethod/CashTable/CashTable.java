@@ -279,18 +279,11 @@ public class CashTable implements View.OnTouchListener, Runnable {
             this.count += amount;
             ArrayList list = new ArrayList<Integer>();
             int stack = this.count;
-            if (this.count <= this.StackCount - 1) {
-                while (stack > 0) {
-                    list.add(this.currency.getBaseImage());
-                    stack--;
-                }
-            } else {
-                while (stack > 0) {
-                    int rem = this.StackCount;
-                    if (stack < this.StackCount - 1) rem = stack % this.StackCount;
-                    list.add(this.currency.getImageSrc(rem));
-                    stack -= this.StackCount;
-                }
+            while (stack > 0) {
+                int rem = this.StackCount;
+                if (stack < this.StackCount) rem = stack % this.StackCount;
+                list.add(this.currency.getImageSrc(rem));
+                stack -= this.StackCount;
             }
             this.adaptor.items = list;
             this.adaptor.notifyDataSetChanged();
@@ -299,18 +292,11 @@ public class CashTable implements View.OnTouchListener, Runnable {
         public void UpdateStack() {
             ArrayList list = new ArrayList<Integer>();
             int stack = this.count;
-            if (this.count <= this.StackCount - 1) {
-                while (stack > 0) {
-                    list.add(this.currency.getBaseImage());
-                    stack--;
-                }
-            } else {
-                while (stack > 0) {
-                    int rem = this.StackCount;
-                    if (stack < this.StackCount - 1) rem = stack % this.StackCount;
-                    list.add(this.currency.getImageSrc(rem));
-                    stack -= this.StackCount;
-                }
+            while (stack > 0) {
+                int rem = this.StackCount;
+                if (stack < this.StackCount) rem = stack % this.StackCount;
+                list.add(this.currency.getImageSrc(rem));
+                stack -= this.StackCount;
             }
             this.adaptor.items = list;
             this.adaptor.notifyDataSetChanged();
@@ -361,8 +347,6 @@ public class CashTable implements View.OnTouchListener, Runnable {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            // DragNDropImageView v = new DragNDropImageView(mContext, items.get(i), items.get(i), viewGroup);
-            // v.setDimensions(40, 40);
             ImageView v = new ImageView(viewGroup.getContext());
             v.setImageResource(items.get(i));
             v.setMaxWidth((int) (150 * WIDTHSCALER));

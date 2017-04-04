@@ -81,7 +81,6 @@ public class PagerContainer extends FrameLayout implements ViewPager.OnPageChang
                 ev.offsetLocation(mCenter.x - mInitialTouch.x, mCenter.y - mInitialTouch.y);
                 break;
         }
-
         return mPager.dispatchTouchEvent(ev);
     }
 

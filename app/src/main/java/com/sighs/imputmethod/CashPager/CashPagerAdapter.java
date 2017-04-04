@@ -1,24 +1,18 @@
 package com.sighs.imputmethod.CashPager;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.sighs.imputmethod.CashTable.CashTable;
-import com.sighs.imputmethod.MainActivity;
 import com.sighs.imputmethod.R;
-import com.sighs.imputmethod.ServiceInputMethod;
-import com.sighs.imputmethod.customviews.DragNDropImageView;
-import com.sighs.imputmethod.customviews.OnDropEventListener;
-import com.sighs.imputmethod.models.Coordinates;
 import com.sighs.imputmethod.models.Currency;
 
 public class CashPagerAdapter extends PagerAdapter implements View.OnClickListener  {
@@ -29,6 +23,7 @@ public class CashPagerAdapter extends PagerAdapter implements View.OnClickListen
     private LayoutInflater mInflater;
     private View table;
     private CashTable tableAdapter;
+    private ViewPager mPager;
 
     public CashPagerAdapter(Context context, Currency[] notes) {
         this.mNotes = notes;
@@ -42,7 +37,7 @@ public class CashPagerAdapter extends PagerAdapter implements View.OnClickListen
         ImageView imageView = (ImageView) itemView.findViewById(R.id.currency);
         imageView.setImageResource(this.mNotes[position].getBaseImage());
         TextView noteText = (TextView) itemView.findViewById(R.id.currencyText);
-        noteText.setText("" +this.mNotes[position].getValue());
+        noteText.setText(String.valueOf(this.mNotes[position].getValue()));
         itemView.setGravity(Gravity.CENTER);
         imageView.setScaleX(0.8f);
         imageView.setScaleY(0.8f);
@@ -54,6 +49,10 @@ public class CashPagerAdapter extends PagerAdapter implements View.OnClickListen
 
     public void setTable(View table) {
         this.table = table;
+    }
+
+    public void setPager(View pager) {
+        this.mPager = (ViewPager) pager;
     }
 
     public void setTableAdapter(CashTable adapter) {

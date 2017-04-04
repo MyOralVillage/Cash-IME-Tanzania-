@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_marginTop="25dp"
+        android:id="@+id/demo_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mobile Money Transfer"
+        android:textSize="37dp"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/demo_recipient"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="Recipient Email"
+            android:textAlignment="center"
+            android:inputType="textEmailAddress"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+        <EditText
+            android:id="@+id/demo_amount"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="Value"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
+        <Button
+            android:id="@+id/demo_send"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="SEND"
+            android:background="@color/green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -123,6 +124,22 @@ public class ServiceInputMethod extends InputMethodService implements OnCashTabl
         });
         ImageButton rightButton = (ImageButton) layout.findViewById(R.id.btnRightArrow);
         rightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int curr = pagerView.getCurrentItem();
+                pagerView.setCurrentItem(curr + 1, true);
+            }
+        });
+        Button leftPager = (Button) layout.findViewById(R.id.pager_left);
+        leftPager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int curr = pagerView.getCurrentItem();
+                pagerView.setCurrentItem(curr - 1, true);
+            }
+        });
+        Button rightPager = (Button) layout.findViewById(R.id.pager_right);
+        rightPager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int curr = pagerView.getCurrentItem();

@@ -33,8 +33,8 @@ public class Currency {
         if(this.images.length > 0) this.baseImage = this.images[0];
     }
 
-    public float getValue() {
-        return value;
+    public int getValue() {
+        return (int) value;
     }
 
     public void setValue(float value) {
